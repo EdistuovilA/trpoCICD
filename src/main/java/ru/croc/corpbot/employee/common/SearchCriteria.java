@@ -4,9 +4,9 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
- * Критерий поиска.
+ * \brief Критерий поиска.
  *
- * @author vkhlybov
+ *
  */
 @RequiredArgsConstructor
 @Getter
