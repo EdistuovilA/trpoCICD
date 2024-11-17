@@ -3,9 +3,8 @@ package ru.croc.corpbot.employee.common;
 import lombok.Getter;
 
 /**
- * \brief Поисковая операция.
- *
- *
+  \brief Поисковая операция.
+
  */
 public enum SearchOperation {
 
