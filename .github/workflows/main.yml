@@ -1,0 +1,46 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v2
+        with:
+          java-version: '21'
+          distribution: 'adopt'
+
+      - name: Cache Maven dependencies
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-maven-
+
+      - name: Build Docker image
+        run: |
+          ./mvnw spring-boot:build-image -D'spring-boot.build-image.imageName=localhost:32000/${{ github.event.repository.name }}:${{ github.sha }}' -Dspring-boot.build-image.publish=true
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+      - name: Build JAR for Pull Requests
+        run: ./mvnw install
+        if: github.event_name == 'pull_request'
+
+      - name: Upload JAR artifact
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v2
+        with:
+          name: jar-artifact
+          path: target/*.jar
