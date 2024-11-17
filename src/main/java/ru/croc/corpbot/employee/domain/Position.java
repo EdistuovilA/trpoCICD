@@ -45,7 +45,11 @@ public enum Position {
     /**
      * Кадровик.
      */
-    PERSONNEL_OFFICER("Кадровик");
+    PERSONNEL_OFFICER("Кадровик"),
+    /**
+     * Кадровик.
+     */
+    WATER_CARIER("Водонос");
 
     private final String russianName;
 
