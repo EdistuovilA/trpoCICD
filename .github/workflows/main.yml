@@ -29,7 +29,8 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-          run: mvn -B clean package
+      - name: Maven run
+        run: mvn --batch-mode --update-snapshots verify
 
 
       #- name: Build Docker image
