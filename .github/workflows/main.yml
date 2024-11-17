@@ -1,9 +1,12 @@
-name: CI/CD Pipeline
+name: build
 
 on:
   push:
-
+    branches:
+      - main
   pull_request:
+    branches:
+      - '*'
 
 jobs:
   build:
@@ -26,19 +29,21 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
+          run: mvn -B clean package
+
 
       #- name: Build Docker image
       # run: |
       #    ./mvnw spring-boot:build-image -D'spring-boot.build-image.imageName=localhost:32000/${{ github.event.repository.name }}:${{ github.sha }}' -Dspring-boot.build-image.publish=true
       #  if: github.event_name == 'push' && github.ref == 'refs/heads/main'
 
-      - name: Build JAR for Pull Requests
-        run: ./mvnw install
-        if: github.event_name == 'pull_request'
+      #- name: Build JAR for Pull Requests
+      #  run: ./mvnw install
+      #  if: github.event_name == 'pull_request'
 
-      - name: Upload JAR artifact
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
-        with:
-          name: jar-artifact
-          path: target/*.jar
+      #- name: Upload JAR artifact
+      #  if: github.event_name == 'pull_request'
+      #  uses: actions/upload-artifact@v4
+      #  with:
+      #    name: jar-artifact
+      #    path: target/*.jar
