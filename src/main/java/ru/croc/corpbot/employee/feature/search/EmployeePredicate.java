@@ -7,6 +7,11 @@ import ru.croc.corpbot.employee.common.SearchCriteria;
 import ru.croc.corpbot.employee.common.SearchOperation;
 import ru.croc.corpbot.employee.domain.Employee;
 
+/*!
+	\brief класс для предикатов
+
+
+*/
 @RequiredArgsConstructor
 public class EmployeePredicate {
 
