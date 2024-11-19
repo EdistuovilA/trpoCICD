@@ -1,10 +1,10 @@
 package ru.croc.corpbot.employee.domain;
 
-/**
+/*!
+	\brief перечисление существующих позиций
 
-    \brief перечисление должностей
 
- */
+*/
 public enum Position {
 
     /**
