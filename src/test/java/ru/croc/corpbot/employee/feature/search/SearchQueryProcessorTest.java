@@ -40,8 +40,10 @@ class SearchQueryProcessorTest {
         assertAll(
                 () -> assertEquals("email", res1, "Ошибка распознования " + query1),
                 () -> assertEquals("phone", res2, "Ошибка распознования " + query2),
-                () -> assertEquals("phone", res4, "Ошибка распознования " + query3),
-                () -> assertEquals("phone", res4, "Ошибка распознования " + query4)
+                () -> assertEquals("phone", res3, "Ошибка распознования " + query3),
+                () -> assertEquals("phone", res4, "Ошибка распознования " + query4),
+                () -> assertEquals("fullName", res5, "Ошибка распознования " + query5),
+                () -> assertEquals("fullName", res6, "Ошибка распознования " + query6)
         );
 
     }

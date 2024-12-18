@@ -8,7 +8,7 @@ import java.util.UUID;
 /**
  * DTO-модель сотрудника.
  *
- * @author vkhlybov
+ *
  */
 @Getter
 @Setter

@@ -13,20 +13,23 @@ import java.util.UUID;
 public class Department {
 
     /**
-     * Идентификатор.
+     * @param
+     * id.
      */
     @Id
     @UuidGenerator
     private UUID id;
 
     /**
-     * Наименование.
+     * @param
+     * naming
      */
     @Column(nullable = false)
     private String name;
 
     /**
-     * Вышестоящий отдел.
+     * @param
+     * higher department
      */
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "higher_department_id")

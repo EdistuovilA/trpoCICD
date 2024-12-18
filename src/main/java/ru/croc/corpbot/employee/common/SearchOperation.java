@@ -3,18 +3,20 @@ package ru.croc.corpbot.employee.common;
 import lombok.Getter;
 
 /**
-    \brief Поисковая операция.
-
+    search operation
+    @author Матвей
  */
 public enum SearchOperation {
 
     /**
-     * Равенство.
+     * @param
+     * equality.
      */
     EQUALS("="),
 
     /**
-     * Вхождение в (для строковых значений).
+     * @param
+     * contains
      */
     CONTAINS("LIKE");
 

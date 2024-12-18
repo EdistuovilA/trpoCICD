@@ -4,26 +4,30 @@ import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 /**
-    \brief Класс для критериев поиска.
-
-    .
+ * Класс для выполнения математических операций.
+ *
+ * @author matvey
+ * @version 0.45
  */
 @RequiredArgsConstructor
 @Getter
 public class SearchCriteria {
 
     /**
-     * Поисковый атрибут.
+     * @param
+     * search atribute
      */
     private final String key;
 
     /**
-     * Операция сравнения.
+     * @param
+     * comparation operation
      */
     private final String operation;
 
     /**
-     * Значение поиска.
+     * @param
+     * key of search
      */
     private final Object value;
 }

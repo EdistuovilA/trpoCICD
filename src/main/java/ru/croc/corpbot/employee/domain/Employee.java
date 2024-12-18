@@ -11,7 +11,7 @@ import java.util.UUID;
 /**
  * Сотрудник.
  *
- * @author vkhlybov
+ *
  */
 @Entity
 @Getter
